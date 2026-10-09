@@ -438,7 +438,7 @@
             </div>
         </div>
 
-        <!-- IMAGE SLIDER -->
+        <!-- IMAGE SLIDER (sesuai dengan fail gambar1.jpeg.jpeg anda) -->
         <div class="slider-wrapper">
             <div class="slides-track" id="sliderTrack">
                 <div class="slide"><img src="gambar1.jpeg.jpeg" alt="Aiskrim Sawanah Koko 1"></div>
@@ -550,7 +550,7 @@
         // ⚙️ KONFIGURASI PENTING:
         // ==========================================
         const WHATSAPP_NUMBER = "60148448696"; 
-        const GOOGLE_SCRIPT_URL = "MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DI_SINI"; // Paste Web App URL anda di sini
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx76sl4gxOnN7vTALPO8N_uTucaui7jDHC5hRoFyqxbRrv1ID36aCO-OVOZ0Mv6efq8/exec";
 
         // Slider Script
         let currentSlide = 0;
@@ -618,12 +618,19 @@
             const message = `Hai, saya *${name}* (${phone}).%0ASaya berminat nak order *${selectedPackage}*.%0ABoleh bantu saya urusan COD/penghantaran?`;
             const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
-            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbx76sl4gxOnN7vTALPO8N_uTucaui7jDHC5hRoFyqxbRrv1ID36aCO-OVOZ0Mv6efq8/exec") {
+            if (GOOGLE_SCRIPT_URL) {
+                const formData = new URLSearchParams();
+                formData.append("nama", name);
+                formData.append("phone", phone);
+                formData.append("pakej", selectedPackage);
+
                 fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
                     mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ nama: name, phone: phone, pakej: selectedPackage })
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: formData.toString()
                 }).finally(() => {
                     window.location.href = waUrl;
                 });
