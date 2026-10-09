@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiskrim Sawanah Koko - Komfem Repeat!</title>
-    <!-- Font Segar & Moden -->
+    <title>Aiskrim Sawanah Koko - Promo Istimewa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #1a7e44;
-            --dark-green: #0f512b;
-            --accent-gold: #ffc107;
-            --choco-brown: #4a2c11;
-            --bg-light: #f7f9f6;
+            --primary-green: #147238;
+            --dark-green: #0a4622;
+            --accent-yellow: #ffc800;
+            --promo-red: #e61919;
+            --choco-brown: #3e2208;
+            --bg-light: #f5f8f5;
             --text-dark: #222222;
         }
 
@@ -29,29 +29,27 @@
             line-height: 1.6;
         }
 
-        /* Header / Banner */
         header {
             background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
             color: white;
             text-align: center;
-            padding: 40px 20px 30px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 35px 20px 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 800;
-            color: var(--accent-gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--accent-yellow);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
             margin-bottom: 5px;
         }
 
         header p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .container {
@@ -60,155 +58,579 @@
             padding: 20px;
         }
 
-        /* Galeri Gambar */
-        .image-card {
-            background: white;
-            border-radius: 20px;
+        /* COUNTDOWN TIMER */
+        .timer-container {
+            background: #fff3cd;
+            border: 2px dashed #f0ad4e;
+            border-radius: 18px;
             padding: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             text-align: center;
-        }
-
-        .image-card img {
-            width: 100%;
-            border-radius: 15px;
-            display: block;
-            margin-bottom: 12px;
-            object-fit: cover;
-        }
-
-        /* Bahagian Penerangan */
-        .section-box {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--primary-green);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .section-box h2 {
-            color: var(--choco-brown);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .feature-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .feature-list li::before {
-            content: '🍫';
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* Butang WhatsApp Melekat (Floating) & Normal */
-        .cta-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
+        .timer-title {
+            color: #d9534f;
             font-weight: 700;
-            padding: 16px 25px;
-            border-radius: 50px;
-            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            margin: 25px 0 10px;
+            font-size: 1rem;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
-        .cta-btn:hover {
-            background: #1eb956;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        .timer-box {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
         }
 
-        /* Floating WhatsApp Button */
+        .time-segment {
+            background: #222;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            min-width: 60px;
+        }
+
+        .time-segment span {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+        }
+
+        .time-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* IMAGE SLIDER */
+        .slider-wrapper {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .slides-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 340px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 1.4rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .slider-btn:hover { background: rgba(0,0,0,0.8); }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: var(--accent-yellow);
+            transform: scale(1.2);
+        }
+
+        /* CARD SECTIONS */
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .section-title {
+            color: var(--choco-brown);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* DELIVERY */
+        .delivery-box {
+            background: #eef7f0;
+            border: 2px solid #b8e0c2;
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .area-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag-item {
+            background: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* PACKAGES */
+        .package-card {
+            border: 2px solid #eee;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 18px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .package-card:hover {
+            border-color: var(--primary-green);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .package-badge {
+            background: var(--primary-green);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .package-card.highlight {
+            border-color: var(--promo-red);
+            background: #fffbfb;
+        }
+
+        .package-card.highlight .package-badge {
+            background: var(--promo-red);
+        }
+
+        .pkg-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .pkg-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .pkg-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--promo-red);
+        }
+
+        .pkg-detail {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            background: #25d366;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 12px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .btn-order:hover { background: #1eb956; }
+
+        /* FLOATING WHATSAPP */
         .float-wa {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25d366;
+            background: #25d366;
             color: white;
-            border-radius: 50px;
             padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             z-index: 1000;
+        }
+
+        /* MODAL POP-UP BORANG */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-box {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 18px;
+            background: none; border: none;
+            font-size: 1.5rem; cursor: pointer; color: #888;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--choco-brown);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .modal-subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid #ccc;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-green);
+        }
+
+        .btn-submit-wa {
+            width: 100%;
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-submit-wa:hover {
+            background: #1eb956;
         }
 
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 30px 20px 80px;
             font-size: 0.85rem;
-            color: #777;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <h1>AISKRIM SAWANAH KOKO</h1>
         <p>✨ KELAZATAN COKLAT SEBENAR • KOMFEM REPEAT! ✨</p>
     </header>
 
     <div class="container">
-        
-        <!-- Galeri Gambar -->
-        <div class="image-card">
-            <!-- Simpan gambar anda dengan nama 'banner.png' di folder yang sama -->
-            <img src="banner.png" alt="Aiskrim Sawanah Koko">
-            <p style="font-weight: 600; color: var(--choco-brown);">Dingin, Berkrim, & Penuh Rasa Koko!</p>
+
+        <!-- COUNTDOWN TIMER -->
+        <div class="timer-container">
+            <div class="timer-title">⚡ PROMOSI TERHAD HARI INI ⚡</div>
+            <div class="timer-box">
+                <div class="time-segment">
+                    <span id="hours">04</span>
+                    <div class="time-label">Jam</div>
+                </div>
+                <div class="time-segment">
+                    <span id="minutes">45</span>
+                    <div class="time-label">Minit</div>
+                </div>
+                <div class="time-segment">
+                    <span id="seconds">20</span>
+                    <div class="time-label">Saat</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Penerangan Produk -->
-        <div class="section-box">
-            <h2>Kenapa Mesti Cuba Aiskrim Ini?</h2>
-            <p>
-                Dibuat khas untuk peminat koko asli! Gabungan rasa coklat yang pekat, berkrim, dan kesegaran ais yang sejuk membuatkan anda pasti mahu lagi setiap kali menikmatinya.
-            </p>
-            <ul class="feature-list">
-                <li><strong>Rasa Koko Premium:</strong> Nikmati kepuasan coklat pekat dalam setiap gigitan.</li>
-                <li><strong>Sesuai Untuk Semua:</strong> Pilihan terbaik untuk menyejukkan tekak seisi keluarga.</li>
-                <li><strong>Produk Buatan Malaysia:</strong> Halal, bersih, dan dijamin kualitinya!</li>
-            </ul>
+        <!-- IMAGE SLIDER -->
+        <div class="slider-wrapper">
+            <div class="slides-track" id="sliderTrack">
+                <div class="slide"><img src="gambar1.jpeg" alt="Aiskrim Sawanah Koko 1"></div>
+                <div class="slide"><img src="gambar2.jpeg" alt="Aiskrim Sawanah Koko 2"></div>
+                <div class="slide"><img src="gambar3.jpeg" alt="Aiskrim Sawanah Koko 3"></div>
+            </div>
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+            <div class="slider-dots" id="dotsContainer">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+            </div>
         </div>
 
-        <!-- Butang Order Utama -->
-        <a href="https://wa.me/60148448696?text=Hai,%20saya%20berminat%20nak%20order%20Aiskrim%20Sawanah%20Koko!" target="_blank" class="cta-btn">
-            📱 Tempah Sekarang via WhatsApp
-        </a>
+        <!-- KAWASAN PENGHANTARAN (COD) -->
+        <div class="card">
+            <div class="section-title">🛵 Kawasan Liputan Penghantaran (COD)</div>
+            <div class="delivery-box">
+                <p style="font-weight: 600; color: #1a562f;">Kami hantar terus dalam keadaan sejuk & beku ke kawasan berikut:</p>
+                <div class="area-tags">
+                    <span class="tag-item">📍 Gombak</span>
+                    <span class="tag-item">📍 Wangsa Maju</span>
+                    <span class="tag-item">📍 Setapak</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">*Kawasan berhampiran boleh dirunding via WhatsApp.</p>
+            </div>
+        </div>
+
+        <!-- PAKEJ HARGA -->
+        <div class="card">
+            <div class="section-title">📦 Pilih Pakej Promosi Anda</div>
+
+            <!-- Pakej 1 -->
+            <div class="package-card">
+                <span class="package-badge">Pilihan Jimat</span>
+                <div class="pkg-header">
+                    <div class="pkg-title">Beli 10 Percuma 1</div>
+                    <div class="pkg-price">RM20</div>
+                </div>
+                <div class="pkg-detail">Dapat 11 batang aiskrim penuh berkrim. Sesuai untuk santai seisi rumah!</div>
+                <button class="btn-order" onclick="openModal('Beli 10 Percuma 1 (RM20)')">Pilih Pakej RM20</button>
+            </div>
+
+            <!-- Pakej 2 -->
+            <div class="package-card">
+                <span class="package-badge">Paling Popular</span>
+                <div class="pkg-header">
+                    <div class="pkg-title">Beli 20 Percuma 3</div>
+                    <div class="pkg-price">RM40</div>
+                </div>
+                <div class="pkg-detail">Dapat 23 batang aiskrim koko premium. Puas makan bersama keluarga!</div>
+                <button class="btn-order" onclick="openModal('Beli 20 Percuma 3 (RM40)')">Pilih Pakej RM40</button>
+            </div>
+
+            <!-- Pakej 3 -->
+            <div class="package-card highlight">
+                <span class="package-badge">Pakej Borong & Kenduri</span>
+                <div class="pkg-header">
+                    <div class="pkg-title">Beli 100 Percuma 20</div>
+                    <div class="pkg-price">RM200</div>
+                </div>
+                <div class="pkg-detail">Dapat 120 batang aiskrim <strong>+ Percuma Polisterin Box</strong> tahan sejuk!</div>
+                <button class="btn-order" style="background: var(--promo-red);" onclick="openModal('Beli 100 Percuma 20 + Polisterin Box (RM200)')">Pilih Pakej Borong RM200</button>
+            </div>
+        </div>
 
     </div>
 
-    <!-- Butang WhatsApp Terapung di Bawah Skrin -->
-    <a href="https://wa.me/60148448696?text=Hai,%20saya%20berminat%20nak%20order%20Aiskrim%20Sawanah%20Koko!" target="_blank" class="float-wa">
-        💬 Chat WhatsApp
-    </a>
+    <!-- Floating WhatsApp -->
+    <button class="float-wa" onclick="openModal('Pertanyaan Umum / Info Pakej')">💬 Chat WhatsApp</button>
+
+    <!-- MODAL BORANG POP-UP -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-title">Tempah via WhatsApp</div>
+            <div class="modal-subtitle">Isi nama & nombor phone untuk terus berhubung dengan kami.</div>
+
+            <form id="orderForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>Nama Anda:</label>
+                    <input type="text" id="custName" required placeholder="Contoh: Luqman">
+                </div>
+                <div class="form-group">
+                    <label>Nombor WhatsApp:</label>
+                    <input type="tel" id="custPhone" required placeholder="Contoh: 0148448696">
+                </div>
+                <div class="form-group">
+                    <label>Pakej Pilihan:</label>
+                    <select id="custPackage">
+                        <option value="Beli 10 Percuma 1 (RM20)">Beli 10 Percuma 1 (RM20)</option>
+                        <option value="Beli 20 Percuma 3 (RM40)">Beli 20 Percuma 3 (RM40)</option>
+                        <option value="Beli 100 Percuma 20 + Polisterin Box (RM200)">Beli 100 Percuma 20 + Box (RM200)</option>
+                        <option value="Pertanyaan Umum / Info Pakej">Pertanyaan Umum / Lain-lain</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit-wa" id="btnSubmit">🚀 Teruskan ke WhatsApp</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
-        <p>© 2026 Aiskrim Sawanah Koko. Hak Cipta Terpelihara.</p>
+        <p>© 2026 Aiskrim Sawanah Koko. Kualiti Dijamin Halal & Bersih.</p>
     </footer>
 
+    <script>
+        // ==========================================
+        // ⚙️ KONFIGURASI PENTING:
+        // ==========================================
+        const WHATSAPP_NUMBER = "60148448696"; 
+        const GOOGLE_SCRIPT_URL = "MASUKKAN_URL_GOOGLE_APPS_SCRIPT_ANDA_DI_SINI"; // Paste Web App URL anda di sini
+
+        // Slider Script
+        let currentSlide = 0;
+        const track = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentSlide));
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        setInterval(() => moveSlide(1), 4000);
+
+        // Countdown Timer Script
+        function startTimer() {
+            let duration = (5 * 60 * 60) + (32 * 60);
+            setInterval(function () {
+                let hours = parseInt(duration / 3600, 10);
+                let minutes = parseInt((duration % 3600) / 60, 10);
+                let seconds = parseInt(duration % 60, 10);
+
+                document.getElementById('hours').textContent = hours < 10 ? "0" + hours : hours;
+                document.getElementById('minutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById('seconds').textContent = seconds < 10 ? "0" + seconds : seconds;
+
+                if (--duration < 0) duration = 8 * 3600;
+            }, 1000);
+        }
+        startTimer();
+
+        // Modal Pop-Up Control
+        function openModal(packageName) {
+            if (packageName) {
+                document.getElementById('custPackage').value = packageName;
+            }
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        // Hantar Data ke Google Sheet & Terus Buka WhatsApp
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const selectedPackage = document.getElementById('custPackage').value;
+            const btnSubmit = document.getElementById('btnSubmit');
+
+            btnSubmit.innerText = "⏳ Sedang Menghubungkan...";
+            btnSubmit.disabled = true;
+
+            const message = `Hai, saya *${name}* (${phone}).%0ASaya berminat nak order *${selectedPackage}*.%0ABoleh bantu saya urusan COD/penghantaran?`;
+            const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbx76sl4gxOnN7vTALPO8N_uTucaui7jDHC5hRoFyqxbRrv1ID36aCO-OVOZ0Mv6efq8/exec") {
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nama: name, phone: phone, pakej: selectedPackage })
+                }).finally(() => {
+                    window.location.href = waUrl;
+                });
+            } else {
+                window.location.href = waUrl;
+            }
+        }
+    </script>
 </body>
 </html>
